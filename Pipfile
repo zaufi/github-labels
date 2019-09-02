@@ -11,7 +11,7 @@ twine = "*"
 ipython = "*"
 
 [packages]
-github_labels = {path = ".",editable = true}
+github_labels = { path = ".", editable = true }
 
 [requires]
 python_version = "3.6"

@@ -16,7 +16,7 @@ Unreleased_
 Added
 -----
 
-- Add basic files required for Python packaging.
+- Initial implementation (for TrueColor terminals only).
 
 
-.. _Unreleased: https://github.com/zaufi/skeleton.py/release/1.0.0...HEAD
+.. _Unreleased: https://github.com/zaufi/github-labels/33998d7...HEAD

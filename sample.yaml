@@ -1,0 +1,48 @@
+repositories:
+    - 'zaufi/github-labels'
+
+labels:
+    - name: bug
+      color: 'aa0000'
+      description: 'A bug-fixing patch'
+    - name: feature
+      color: '00aa00'
+      description: 'Introducing a new feature'
+    - name: improvement
+      color: '00aaaa'
+      description: 'Make an existed feature even better'
+    - name: refactor
+      color: 'ddaa00'
+      description: 'Make the code better w/o changing functionality'
+    - name: style
+      color: '5500aa'
+      description: 'Reformat'
+    - name: misc
+      color: 'aa00aa'
+      description: 'Smth else'
+
+    - name: 'area:docs'
+      color: '20ff99'
+      description: 'A patch to documentation'
+    - name: 'area:build'
+      color: '20ff99'
+      description: 'A patch to the build system'
+    - name: 'area:package'
+      color: '20ff99'
+      description: 'A patch to the packaging way'
+
+    - name: 'workflow:expired'
+      color: '000066'
+      description: 'Not actual anymore'
+    - name: 'workflow:external-discussion'
+      color: '000066'
+      description: 'Development frozen due to an external discussion'
+    - name: 'workflow:in-review'
+      color: '000066'
+      description: 'Review in progress'
+    - name: 'workflow:testing'
+      color: '000066'
+      description: 'Doing nightly or 24x7 tests'
+    - name: 'workflow:wip'
+      color: '000066'
+      description: 'Work in progress'
