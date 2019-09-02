@@ -13,15 +13,16 @@ Usage
 
     Usage: github-labels [OPTIONS] INPUT_FILE
 
-      Mass-setting of labels at Github repositories
+      Mass-setting labels to Github repositories
 
     Options:
-      --config TEXT           User config  [default: ~/.config/github-labels.conf]
-      -r, --dry-run           Do not perform real actions
-      -v, --verbose           Be a little bit verbose
+      --config FILE           File name of the user config.  [default:
+                              /home/zaufi/.config/github-labels.conf]
+      -r, --dry-run           Do not perform real actions.
+      -v, --verbose           Be a little bit verbose.
       -s, --only-show-labels  Only show configured labels. Do not do any network
-                              operations
-      --help                  Show this message and exit
+                              operations.
+      -h, --help              Show this message and exit.
 
 The program accepts a YAML file with a list of labels and repositories to apply.
 Basically it looks like this:

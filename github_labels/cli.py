@@ -40,26 +40,29 @@ class _DummySession:
         return _DummyRepo(name)
 
 
-@click.command()
+_CONTEXT_SETTINGS = dict(help_option_names=['-h', '--help'])
+
+@click.command(context_settings=_CONTEXT_SETTINGS)
 @click.option(
     '--config'
   , default=click.get_app_dir('') + 'github-labels.conf'
   , show_default=True
-  , help='User config'
+  , metavar='FILE'
+  , help='File name of the user config.'
   )
 @click.option(
     '--dry-run'
   , '-r'
   , default=False
   , is_flag=True
-  , help='Do not perform real actions'
+  , help='Do not perform real actions.'
   )
 @click.option(
     '--verbose'
   , '-v'
   , default=False
   , is_flag=True
-  , help='Be a little bit verbose'
+  , help='Be a little bit verbose.'
   )
 @click.option(
     '--only-show-labels'
