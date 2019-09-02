@@ -70,7 +70,7 @@ class _DummySession:
   )
 @click.argument('input-file')
 def cli(config, input_file, dry_run, verbose, only_show_labels):
-    """ Mass-setting of labels at Github repositories """
+    """ Mass-setting labels to Github repositories """
 
     if only_show_labels:
         dry_run = True

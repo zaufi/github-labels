@@ -1,7 +1,7 @@
 What is this
 ============
 
-The utility to mass-setting labels to Gihub projects.
+The utility to mass-setting labels to Github projects.
 This is the prove-of-concept quality code ;-)
 I.e., not even *alpha* :)
 
@@ -20,10 +20,10 @@ Usage
       -r, --dry-run           Do not perform real actions
       -v, --verbose           Be a little bit verbose
       -s, --only-show-labels  Only show configured labels. Do not do any network
-                              operations.
-      --help                  Show this message and exit.
+                              operations
+      --help                  Show this message and exit
 
-The program accepts a YAML file with a list of labels and repocitories to apply.
+The program accepts a YAML file with a list of labels and repositories to apply.
 Basically it looks like this:
 
 .. code-block:: yaml
@@ -62,8 +62,8 @@ Screenshots
 Caveats
 -------
 
-* It **always** use ANSI colors for TrueTerminals, so if your terminal is not TrueColor... OOPS
-* Error handling need some care... You can see a Python backtrace sometimes %)
+* It **always** use ANSI colors for True Color terminals, so if your terminal is not TrueColor... OOPS
+* Error handling needs some care. You can see a Python backtrace sometimes :-)
 
 
 TODOs
