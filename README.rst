@@ -51,6 +51,14 @@ User config contains credentials to access Github:
         password: '<your-pass>'
 
 
+Screenshots
+-----------
+
+.. image:: doc/github-labels-dry-run.png
+   :scale: 50 %
+   :alt: Dry run
+
+
 Caveats
 -------
 
