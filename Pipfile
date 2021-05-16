@@ -5,10 +5,7 @@ verify_ssl = true
 
 [dev-packages]
 bumpversion = "*"
-pytest = "*"
-pytest-cov = "*"
 twine = "*"
-ipython = "*"
 github_labels = { path = ".", editable = true }
 
 [packages]
