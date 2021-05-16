@@ -3,14 +3,11 @@
 # Copyright (c) 2019-2021 Alex Turbov <i.zaufi@gmail.com>
 #
 
-# Standard imports
-import sys
-
 # Third party packages
 import click
 import exitstatus
 
-# Project specific imports
+# Local imports
 from .cli import cli
 
 

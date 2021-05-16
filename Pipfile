@@ -6,12 +6,32 @@ verify_ssl = true
 [scripts]
 dist-check = "twine check dist/*"
 dist = "python -c 'import setuptools; setuptools.setup()' -- bdist_wheel"
-lint-check = "flakehell lint doc/conf.py onixs test test/test-plugin/onixs/generator_plugins/unit_test"
+lint-check = "flakehell lint github_labels"
 
 [dev-packages]
-bumpversion = "*"
-twine = "*"
+flake8-2020 = "*"
+flake8-bugbear = "*"
+flake8-builtins = "*"
+flake8-comprehensions = "*"
+flake8-eradicate = "*"
+flake8-isort = "*"
+flake8-mutable = "*"
+flake8-pep3101 = "*"
+flake8-quotes = "*"
+flake8-return = "*"
+flake8-rst-docstrings = "*"
+flake8-simplify = "*"
+flake8-use-fstring = "*"
+flake8-variables-names = "*"
+flakehell = "*"
+hypothesis = "*"
+isort = ">= 5.4"
+mccabe = "*"
 github_labels = { path = ".", editable = true }
+pycodestyle = "*"
+pylint = "*"
+setuptools = "*"
+twine = "*"
 
 [packages]
 click = "~= 8.0"

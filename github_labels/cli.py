@@ -12,19 +12,16 @@ import pathlib
 import click
 import exitstatus
 import github
-import yaml
 import ycfg.collections
 import ycfg.config_file
 
-# Project specific imports
-from .logger import setup_logger
-from .term import color_print, color_text, fore_print, hex_to_rgb
-
+# Local imports
+from .term import color_text, fore_print, hex_to_rgb
 
 
 def _select_fg_color(bg_color: str):
     rgb = hex_to_rgb(bg_color)
-    return '#000000' if functools.reduce(lambda s,x: s + int(x > 128) , rgb, 0) >= 2 else '#ffffff'
+    return '#000000' if functools.reduce(lambda s, x: s + int(x > 128), rgb, 0) >= 2 else '#ffffff'
 
 
 class _DummyRepo:
@@ -111,21 +108,21 @@ def cli(config, input_file, dry_run, verbose, only_show_labels):
             click.echo(f'Current labels of {repo.name}')
 
         labels = repo.get_labels()
-        desired_label_names = {l['name']: ycfg.config_file.items_as_attributes(l) for l in cfg.labels}
-        for l in labels:
-            color_str = color_text(l.name, _select_fg_color('#' + l.color), '#' + l.color)
-            print(f'  [{l.color}] {color_str}: {l.description}')
-            if l.name in desired_label_names \
-              and desired_label_names[l.name].description == l.description \
-              and desired_label_names[l.name].color == l.color:
+        desired_label_names = {label['name']: ycfg.config_file.items_as_attributes(label) for label in cfg.labels}
+        for label in labels:
+            color_str = color_text(label.name, _select_fg_color('#' + label.color), '#' + label.color)
+            print(f'  [{label.color}] {color_str}: {label.description}')
+            if label.name in desired_label_names \
+              and desired_label_names[label.name].description == label.description \
+              and desired_label_names[label.name].color == label.color:
                 if verbose:
                     fore_print(f'  Keeping the label `{color_str}`', '#888888')
-                del desired_label_names[l.name]
+                del desired_label_names[label.name]
             else:
                 if verbose:
                     fore_print(f'  Deleting the label `{color_str}`', '#888888')
                 if not dry_run:
-                    l.delete()
+                    label.delete()
 
         if desired_label_names:
             if only_show_labels:
@@ -133,10 +130,10 @@ def cli(config, input_file, dry_run, verbose, only_show_labels):
             else:
                 click.echo(f'Updating labels of {repo.name}')
 
-            for l in desired_label_names.values():
-                label = ycfg.config_file.items_as_attributes(l)
-                color_str = color_text(l.name, _select_fg_color('#' + l.color), '#' + l.color)
-                print(f'  [{l.color}] {color_str}: {l.description}')
+            for lbl in desired_label_names.values():
+                label = ycfg.config_file.items_as_attributes(lbl)
+                color_str = color_text(lbl.name, _select_fg_color('#' + lbl.color), '#' + lbl.color)
+                print(f'  [{lbl.color}] {color_str}: {lbl.description}')
                 if not dry_run:
                     repo.create_label(label.name, label.color, description=label.description)
 

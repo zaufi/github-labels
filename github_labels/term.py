@@ -3,7 +3,6 @@
 # Copyright (c) 2019-2021 Alex Turbov <i.zaufi@gmail.com>
 #
 
-
 # NOTE This code is from `truecolor` Python package
 # ATTENTION The original code (1.0b2) is buggy and won't work for me
 #
@@ -23,8 +22,7 @@ _Z_BACK = 48
 
 def _e(red_component, green_component, blue_component, z_level=_Z_FORE):
     """Return escaped color sequence"""
-    return '\x1b[{};2;{};{};{}m'.format(
-        z_level, red_component, green_component, blue_component)
+    return f'\x1b[{z_level};2;{red_component};{green_component};{blue_component}m'
 
 
 def _f(red_component, green_component, blue_component):
@@ -67,15 +65,14 @@ def rgb_to_hex(red_component=None, green_component=None, blue_component=None):
     """
     if isinstance(red_component, tuple):
         red_component, green_component, blue_component = red_component
-    return '#{:02X}{:02X}{:02X}'.format(
-        red_component, green_component, blue_component)
+    return f'#{red_component:02X}{green_component:02X}{blue_component:02X}'
 
 
 def fore_text(txt, foreground):
     """Return text string with foreground only set."""
     if isinstance(foreground, str) and foreground.startswith('#'):
         foreground = hex_to_rgb(foreground)
-    return '{}{}{}'.format(_f(*foreground), txt, _r())
+    return f'{_f(*foreground)}{txt}{_r()}'
 
 
 def color_text(txt, foreground, background):
@@ -84,7 +81,7 @@ def color_text(txt, foreground, background):
         foreground = hex_to_rgb(foreground)
     if isinstance(background, str) and background.startswith('#'):
         background = hex_to_rgb(background)
-    return '{}{}{}{}'.format(_f(*foreground), _b(*background), txt, _r())
+    return f'{_f(*foreground)}{_b(*background)}{txt}{_r()}'
 
 
 def fore_print(txt, foreground):

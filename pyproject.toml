@@ -1,3 +1,61 @@
 [build-system]
 requires = ["setuptools >= 47.1.0", "wheel"]
 build-backend = "setuptools.build_meta"
+
+[tool.flakehell]
+format = "grouped"
+max_line_length = 140
+show_source = true
+extended_default_ignore=[]
+
+[tool.flakehell.plugins]
+flake8-2020 = ["+*"]
+flake8-bugbear = ["+*"]
+flake8-builtins = ["+*"]
+flake8-comprehensions = ["+*"]
+flake8-eradicate = ["+* -E800"]
+flake8-isort = ["+*"]
+flake8-mutable = ["+*"]
+flake8-pep3101 = ["+*"]
+flake8-quotes = ["+*"]
+flake8-return = ["+*"]
+flake8-rst-docstrings = ["+*"]
+flake8-simplify = ["+*"]
+flake8-use-fstring = ["+*"]
+flake8-variables-names = ["+*"]
+mccabe = ["+*"]
+# -E121 continuation line under-indented for hanging indent
+# -E123 closing bracket does not match indentation of opening bracket's line
+# -E124 closing bracket does not match visual indentation
+# -E126 continuation line over-indented for hanging indent
+# -E127 continuation line over-indented for visual indent
+# -E131 continuation line unaligned for hanging indent
+# -E203 whitespace before ','
+# -E265 block comment should start with '# '
+# -W503 line break before binary operator
+pycodestyle = ["+*", "-E121", "-E123", "-E124", "-E126", "-E127", "-E131", "-E203", "-E265", "-W503"]
+pyflakes = ["+*", "-F405"]
+# -E1136 Value 'Optional' is unsubscriptable (unsubscriptable-object)
+# TODO Remove for new version of `pylint` > 2.6.2
+pylint = ["+*", "-E1136"]
+
+[tool.pylint.BASIC]
+const-naming-style = 'UPPER_CASE'
+
+[tool.pylint.FORMAT]
+max-line-length = 140
+
+[tool.pylint.LOGGING]
+logging-format-style = 'new'
+
+[tool.pylint.MISCELLANEOUS]
+notes = []
+
+[tool.isort]
+multi_line_output = 3
+use_parentheses = true
+honor_noqa = true
+import_heading_stdlib = "Standard imports"
+import_heading_thirdparty = "Third party packages"
+import_heading_firstparty = "Project specific imports"
+import_heading_localfolder = "Local imports"
