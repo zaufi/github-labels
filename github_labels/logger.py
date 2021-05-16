@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (c) 2019 Alex Turbov <i.zaufi@gmail.com>
+# Copyright (c) 2019-2021 Alex Turbov <i.zaufi@gmail.com>
 #
 
 # Project specific imports

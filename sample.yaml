@@ -30,6 +30,9 @@ labels:
     - name: 'area:package'
       color: '20ff99'
       description: 'A patch to the packaging way'
+    - name: 'area:testing'
+      color: '20ff99'
+      description: 'A patch to the tests'
 
     - name: 'workflow:expired'
       color: '000066'

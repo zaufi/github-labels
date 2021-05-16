@@ -9,9 +9,11 @@ pytest = "*"
 pytest-cov = "*"
 twine = "*"
 ipython = "*"
-
-[packages]
 github_labels = { path = ".", editable = true }
 
-[requires]
-python_version = "3.6"
+[packages]
+click = "~= 8.0"
+exitstatus = "*"
+PyGithub = "*"
+PyYAML = "*"
+ycfg = "*"

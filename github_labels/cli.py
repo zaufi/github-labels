@@ -1,23 +1,25 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright (c) 2019 Alex Turbov <i.zaufi@gmail.com>
+# Copyright (c) 2019-2021 Alex Turbov <i.zaufi@gmail.com>
 #
 
-# Project specific imports
-from .logger import setup_logger
-from .version import __version__
-from .term import color_print, color_text, fore_print, hex_to_rgb
-
 # Standard imports
-import click
-import click_plugins
 import collections
 import functools
 import pathlib
+
+# Third party packages
+import click
+import exitstatus
+import github
+import yaml
 import ycfg.collections
 import ycfg.config_file
-import yaml
-import github
+
+# Project specific imports
+from .logger import setup_logger
+from .term import color_print, color_text, fore_print, hex_to_rgb
+
 
 
 def _select_fg_color(bg_color: str):
@@ -40,9 +42,14 @@ class _DummySession:
         return _DummyRepo(name)
 
 
-_CONTEXT_SETTINGS = dict(help_option_names=['-h', '--help'])
-
-@click.command(context_settings=_CONTEXT_SETTINGS)
+@click.command()
+@click.help_option(
+    '--help'
+  , '-h'
+  )
+@click.version_option(
+    package_name='github_labels'
+  )
 @click.option(
     '--config'
   , default=click.get_app_dir('') + 'github-labels.conf'
@@ -132,3 +139,5 @@ def cli(config, input_file, dry_run, verbose, only_show_labels):
                 print(f'  [{l.color}] {color_str}: {l.description}')
                 if not dry_run:
                     repo.create_label(label.name, label.color, description=label.description)
+
+    return exitstatus.ExitStatus.success

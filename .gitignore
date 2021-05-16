@@ -1,17 +1,8 @@
 __pycache__/
-.venv/
-dist/
 build/
-tmp/
+dist/
 *.egg-info/
-coverage/
-cov_html/
-.eggs/
-.pytest_cache/
 
 .coverage
-.cache
-.env
-*.pyc
-*.egg
-MANIFEST
+Pipfile.lock
+*.kate-swp
